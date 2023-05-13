@@ -1,5 +1,11 @@
 # python3
 
+import random
+
+
+_multiplier = random.randint(10, 1000)
+_prime = 100010 #max amount of constraints is 10^5 (N value is 1<N<10^5), so that %_prime values are different
+
 class Query:
     def __init__(self, query):
         self.type = query[0]
@@ -9,8 +15,6 @@ class Query:
             self.name = query[2]
 
 def hash_func(s):
-    _multiplier = 263
-    _prime = 100010 #max amount of constraints is 10^5 (N value is 1<N<10^5), so that %_prime values are different
     ans = 0
     for c in reversed(s):
         ans = (ans * _multiplier + ord(c)) % _prime
